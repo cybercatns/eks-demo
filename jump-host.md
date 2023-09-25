@@ -10,7 +10,7 @@
 
 ## Create EKS Cluster
 1. Create cluster without a node group
-```eksctl create cluster --name eks-demo --region us-east-1 --without-nodegroup```
+```eksctl create cluster --name eks-demo --region us-east-1 --without-nodegroup --vpc-private-subnets subnet-0f3ebd3dee9d70ee0,subnet-03d259bb53ad47080,subnet-08736145512fab7ba``` 
 
 2. Create IAM OIDC provider
 ```eksctl utils associate-iam-oidc-provider  --region us-east-1  --cluster eks-demo  --approve```
