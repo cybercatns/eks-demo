@@ -38,3 +38,6 @@ eksctl create nodegroup --cluster=eks-demo \
 
 ## Configure kubectl
 ```eksctl utils write-kubeconfig --cluster=eks-demo --region=us-east-1```
+
+## Cleanup - DELETE Cluster
+```eksctl delete cluster --name eks-demo --region=us-east-1```
