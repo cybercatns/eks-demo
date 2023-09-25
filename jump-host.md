@@ -6,7 +6,35 @@
 
 ```tar -xzf eksctl_$PLATFORM.tar.gz -C /tmp && rm eksctl_$PLATFORM.tar.gz && sudo mv /tmp/eksctl /usr/local/bin```
 
-# Configure kubectl
+# Create EKS Cluster
+1. Create cluster without a node group
+```eksctl create cluster --name eks-demo --region us-east-1 --without-nodegroup```
+
+2. Create IAM OIDC provider
 ```eksctl utils associate-iam-oidc-provider  --region us-east-1  --cluster eks-demo  --approve```
+
+3. Create node group
+```
+eksctl create nodegroup --cluster=eks-demo \
+ --region=us-east-1 \
+ --name=eks-demo-node-group-01 \
+ --node-type=t3.small \
+ --nodes-min=1 \
+ --nodes-max=3 \
+ --ssh-access \
+ --ssh-public-key=/home/ec2-user/.ssh/authorized_keys \
+ --managed \
+ --asg-access \
+ --node-private-networking
+```
+
+4. List EKS clusters
+```eksctl get cluster```
+
+5. List NodeGroups in a cluster
+```eksctl get nodegroup --cluster=eks-demo```
+
+
+# Configure kubectl
 ```aws eks update-kubeconfig --region us-east-1 --name eks-demo```
 ```eksctl utils write-kubeconfig --cluster=eks-demo --region=us-east-1```
