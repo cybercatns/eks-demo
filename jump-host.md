@@ -29,10 +29,10 @@ eksctl create nodegroup --cluster=eks-demo \
 ```
 
 4. List EKS clusters
-```eksctl get cluster```
+```eksctl get cluster --region=us-east-1```
 
 5. List NodeGroups in a cluster
-```eksctl get nodegroup --cluster=eks-demo```
+```eksctl get nodegroup --cluster=eks-demo --region=us-east-1```
 
 
 # Configure kubectl
