@@ -7,6 +7,6 @@
 ```tar -xzf eksctl_$PLATFORM.tar.gz -C /tmp && rm eksctl_$PLATFORM.tar.gz && sudo mv /tmp/eksctl /usr/local/bin```
 
 # Configure kubectl
+```eksctl utils associate-iam-oidc-provider  --region us-east-1  --cluster eks-demo  --approve```
 ```aws eks update-kubeconfig --region us-east-1 --name eks-demo```
 ```eksctl utils write-kubeconfig --cluster=eks-demo --region=us-east-1```
-
