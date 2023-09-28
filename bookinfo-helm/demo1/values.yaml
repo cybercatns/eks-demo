@@ -1,8 +1,18 @@
 # Details Service Configuration Parameters
 # details.service.port
-details:
-  port: 80
-  name: details
-  protocol: http  
+service_list:
+  - name: details
+    port: 80
+    protocol: http  
 
+  - name: ratings
+    port: 9080
+    protocol: http         
 
+  - name: reviews
+    port: 9080
+    protocol: http
+
+  - name: productpage
+    port: 9080
+    protocol: http
