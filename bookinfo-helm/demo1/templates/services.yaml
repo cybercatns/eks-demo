@@ -6,15 +6,15 @@ apiVersion: v1
 kind: Service
 metadata:
   {{- range $v := .Values.service_list }}
-  name: {{ .Values.service_list.name }}
+  name: {{ $v.name }}
   labels:
-    app: {{ .Values.service_list.name }}
-    service: {{ .Values.service_list.name }}
+    app: {{ $v.name }}
+    service: {{ $v.name }}
 spec:
   ports:
-  - port: {{ .Values.service_list.port }}
-    name: {{ .Values.service_list.protocol }}
+  - port: {{ $v.port }}
+    name: {{ $v.protocol }}
   selector:
-    app: {{ .Values.service_list.name }}
+    app: {{ $v.name }}
   {{- end }}    
 ---
