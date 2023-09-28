@@ -10,7 +10,7 @@ metadata:
     service: details
 spec:
   ports:
-  - port: 9080
+  - port: {{ .Values.details.service.port }}
     name: http
   selector:
     app: details
