@@ -2,10 +2,26 @@
 ##################################################################################################
 # Service Template
 ##################################################################################################
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   {{- range $v := .Values.service_list }}
+#   name: {{ $v.name }}
+#   labels:
+#     app: {{ $v.name }}
+#     service: {{ $v.name }}
+# spec:
+#   ports:
+#   - port: {{ $v.port }}
+#     name: {{ $v.protocol }}
+#   selector:
+#     app: {{ $v.name }}
+#   {{- end }}    
+# ---
+{{- range $v := .Values.service_list }}
 apiVersion: v1
 kind: Service
 metadata:
-  {{- range $v := .Values.service_list }}
   name: {{ $v.name }}
   labels:
     app: {{ $v.name }}
@@ -16,5 +32,5 @@ spec:
     name: {{ $v.protocol }}
   selector:
     app: {{ $v.name }}
-  {{- end }}    
----
+{{- end }}
+  ---  
