@@ -1,0 +1,8 @@
+# Details Service Configuration Parameters
+# details.service.port
+details:
+  port: 80
+  name: details
+  protocol: http  
+
+
